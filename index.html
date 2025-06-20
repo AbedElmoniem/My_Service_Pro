@@ -2,46 +2,125 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>خدماتي</title>
+    <title>شركة أبو مروان للمعادن</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        html, body {
-            height: 100%;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(to bottom, #4facfe, #00f2fe);
             color: white;
-            font-family: 'Tahoma', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        main {
-            flex: 1;
-            text-align: center;
-            padding: 50px;
+        nav {
+            background: rgba(0,0,0,0.5);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h1 {
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        header h1 {
             font-size: 3em;
             margin-bottom: 20px;
         }
-        p {
+        header p {
             font-size: 1.5em;
-            margin-top: 0;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .service {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .service:hover {
+            transform: scale(1.05);
         }
         footer {
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
             font-size: 0.9em;
-            color: #eee;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            .service { width: 90%; }
+            nav { flex-direction: column; }
+            nav a { margin: 10px 0; }
         }
     </style>
 </head>
 <body>
+
+    <nav>
+        <div><strong>أبو مروان للمعادن</strong></div>
+        <div>
+            <a href="index.html">الرئيسية</a>
+            <a href="about.html">من نحن</a>
+            <a href="#">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>مرحباً بكم في شركتنا</h1>
+        <p>نقدم أفضل الحلول في عالم المعادن</p>
+    </header>
+
     <main>
-        <h1>أهلاً بك في موقعي الأول</h1>
-        <p>هذا الموقع برعاية شركة أبو مروان</p>
+        <div class="services">
+            <div class="service">
+                <h3>خدمة التصنيع</h3>
+                <p>أحدث تقنيات التصنيع للمعادن.</p>
+            </div>
+            <div class="service">
+                <h3>خدمة الصيانة</h3>
+                <p>صيانة متكاملة لجميع أنواع الأجهزة المعدنية.</p>
+            </div>
+            <div class="service">
+                <h3>الاستشارات الهندسية</h3>
+                <p>فريق خبراء يقدم حلول هندسية احترافية.</p>
+            </div>
+        </div>
     </main>
 
-    <footer>© 2025 جميع الحقوق محفوظة</footer>
+    <footer>© 2025 جميع الحقوق محفوظة - أبو مروان للمعادن</footer>
+
 </body>
 </html>
