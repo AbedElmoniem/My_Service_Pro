@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>من نحن - شركة أبو مروان</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        nav {
+            background: rgba(0,0,0,0.5);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ffd700; }
+        main {
+            flex: 1;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        main h1 { font-size: 3em; margin-bottom: 20px; }
+        main p { font-size: 1.5em; line-height: 1.8; max-width: 800px; margin: auto; }
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            nav { flex-direction: column; }
+            nav a { margin: 10px 0; }
+            main h1 { font-size: 2em; }
+            main p { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div><strong>أبو مروان للمعادن</strong></div>
+        <div>
+            <a href="index.html">الرئيسية</a>
+            <a href="about.html">من نحن</a>
+            <a href="#">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>من نحن</h1>
+        <p>
+            نحن في شركة أبو مروان للمعادن نفتخر بخبرتنا التي تمتد لسنوات طويلة في تقديم حلول متكاملة بمجال المعادن، التصنيع، والصيانة، مع الالتزام بأعلى معايير الجودة والاحترافية.
+        </p>
+    </main>
+
+    <footer>© 2025 جميع الحقوق محفوظة - أبو مروان للمعادن</footer>
+
+</body>
+</html>
 
