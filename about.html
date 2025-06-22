@@ -8,12 +8,21 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff6ec4, #a18cd1);
+            background-size: 800% 800%;
+            animation: gradientAnimation 15s ease infinite;
             color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         nav {
             background: rgba(0,0,0,0.5);
             padding: 15px 20px;
@@ -64,11 +73,11 @@
     <main>
         <h1>من نحن</h1>
         <p>
-            نحن في شركة أبو مروان للخدمات البرمجية,نقدم لكم أفضل الحلول في أيا خدمة برمجية ونكون جاهزين ﻷي استفسار أو خدمة وفي أي وقت
+            نحن في شركة أبو مروان للخدمات البرمجية، نقدم لكم أفضل الحلول في أي خدمة برمجية ونكون جاهزين لأي استفسار أو خدمة في أي وقت.
         </p>
         <h1>العنوان</h1>
         <p>
-            ادلب-كورين-الساحة الشمالية
+            إدلب - كورين - الساحة الشمالية  
             المكتب الهندسي للخدمات البرمجية والحاسوب
         </p>
     </main>
