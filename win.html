@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>💣 النسخة النووية 💣</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: black;
+            color: red;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        #startButton {
+            margin-top: 200px;
+            padding: 30px 60px;
+            font-size: 50px;
+            border: none;
+            border-radius: 20px;
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px red;
+            transition: 0.5s;
+        }
+        #startButton:hover {
+            background-color: darkred;
+            transform: scale(1.2);
+        }
+        h1 {
+            font-size: 80px;
+            margin-top: 150px;
+            text-shadow: 0 0 100px red, 0 0 200px orange;
+            display: none;
+        }
+        canvas {
+            position: absolute;
+            top: 0; left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="startButton">ابدأ الجحيم النووي</button>
+    <h1>💀 تم تدمير جهازك بالكامل 💀</h1>
+
+    <audio id="laugh">
+        <source src="https://www.soundjay.com/human/evil-laugh-3.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="scream">
+        <source src="https://www.soundjay.com/human/screams-female-01.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+    </audio>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const startBtn = document.getElementById('startButton');
+        const laugh = document.getElementById('laugh');
+        const scream = document.getElementById('scream');
+        const music = document.getElementById('music');
+        const h1 = document.querySelector("h1");
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+
+        window.onresize = () => {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+        }
+
+        // الدخان الحي
+        let particles = [];
+        for(let i=0; i<150; i++){
+            particles.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                radius: Math.random() * 30 + 10,
+                dx: (Math.random() - 0.5) * 2,
+                dy: (Math.random() - 0.5) * 1,
+                opacity: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function drawSmoke(){
+            ctx.clearRect(0,0,W,H);
+            for(let i=0;i<particles.length;i++){
+                let p = particles[i];
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+                ctx.fillStyle = `rgba(150, 0, 0, ${p.opacity})`;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if(p.x < 0 || p.x > W || p.y < 0 || p.y > H){
+                    p.x = Math.random() * W;
+                    p.y = H;
+                }
+            }
+        }
+
+        function lightning(){
+            ctx.beginPath();
+            ctx.moveTo(Math.random()*W, 0);
+            for(let i=0;i<10;i++){
+                ctx.lineTo(Math.random()*W, Math.random()*H);
+            }
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 5;
+            ctx.shadowBlur = 30;
+            ctx.shadowColor = "white";
+            ctx.stroke();
+            setTimeout(()=>{ctx.clearRect(0,0,W,H)}, 100);
+        }
+
+        startBtn.addEventListener('click', () => {
+            startBtn.style.display = 'none';
+            h1.style.display = 'block';
+            laugh.play();
+            scream.play();
+            music.play();
+
+            // رعشة الشاشة
+            setInterval(() => {
+                document.body.style.transform = `translate(${Math.random()*50-25}px, ${Math.random()*50-25}px) rotate(${Math.random()*10-5}deg) scale(${1 + Math.random()*0.3})`;
+                document.body.style.background = `rgb(${random(100,255)}, ${random(0,50)}, ${random(0,50)})`;
+                h1.style.textShadow = `0 0 150px rgb(${random(150,255)},0,0)`;
+            }, 80);
+
+            // صواعق كل فترة
+            setInterval(() => {
+                if(Math.random() > 0.6){
+                    lightning();
+                }
+            }, 700);
+
+            // دخان مستمر
+            setInterval(drawSmoke, 40);
+
+            // تغيير النص
+            setTimeout(() => {
+                h1.innerText = "⚠ نظامك دخل الانفجار الشيطاني ⚠";
+            }, 5000);
+
+            // شاشة انهيار ختامية
+            setTimeout(() => {
+                document.body.innerHTML = `
+                    <div style="color: white; background: darkred; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; font-size: 70px;">
+                        ☠ إنهيار نووي كامل ☠
+                    </div>`;
+            }, 30000);
+        });
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+
+</body>
+</html>
