@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -37,17 +37,22 @@
             border-bottom: 1px solid #444;
             padding-bottom: 20px;
         }
+        nav .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 15px 0;
             font-weight: bold;
             transition: all 0.3s;
             font-size: 1.2em;
-            display: block;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 10px;
-            padding: 10px 0;
+            height: 50px;
         }
         nav a:hover {
             background: #ffd700;
@@ -117,11 +122,15 @@
             nav h2 {
                 display: none;
             }
+            nav .links {
+                flex-direction: row;
+                flex: 1;
+                gap: 10px;
+            }
             nav a {
                 flex: 1;
-                margin: 0 5px;
-                padding: 10px 0;
                 font-size: 1em;
+                height: 40px;
             }
             main {
                 margin-left: 0;
@@ -136,7 +145,8 @@
 <body>
 
     <nav>
-        <div style="display:flex; flex:1; justify-content: center;">
+        <h2>شركة أبو مروان</h2>
+        <div class="links">
             <a href="index.html">الرئيسية</a>
             <a href="about.html">من نحن</a>
             <a href="contact-us.html">تواصل معنا</a>
